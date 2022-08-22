@@ -1,97 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="./assets/img/favicon.png"/>
-    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="signup.css">
-    <title>Sign up</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="./assets/img/favicon.png" />
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="signup.css">
+  <title>Sign up</title>
 
 </head>
-<body  onload="javascript:PageLoad();">
- <div class="container">
-  <div class="sign-up text-secondary">
-  <form>
-    <div>
-      <img class="mb-4" src="./assets/img/9mobile.png" alt="" width="72" height="72">
-      <h2>Welcome to 9mobile!</h2>
-      <p> Register your account</p>
+
+<body onload="javascript:PageLoad();">
+  <div class="container">
+    <div class="sign-up text-secondary">
+      <form>
+
+        <div>
+          <img class="mb-4" src="./assets/img/9mobile.png" alt="" width="72" height="72">
+          <h2>Welcome to 9mobile!</h2>
+          <p> Register your account</p>
+        </div>
+
+        <div class="form-group">
+          <p class="register_success_box" id="spnMessage" style="display: none;">Registration successful!</p>
+          <p id="ErrMessage" style="color:red;"></p>
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="number">Phone:</label>
+          <input type="text" class="form-control" id="num" placeholder="Enter number" name="num" required>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+        </div>
+
+        <button type="button" class="btn btn-lg  btn-success btn-block" onclick="javascript:submitData();">Sign up</button>
+        <p class="">Already have an account? <a href="sign-in.html">log in</a></p>
+      </form>
     </div>
-    <div class="form-group">
-     <p class="register_success_box" id="spnMessage" style="display: none;">Registration successful!</p>
-     <p id="ErrMessage" style="color:red;"></p>
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="number">Phone:</label>
-      <input type="text" class="form-control" id="num" placeholder="Enter number" name="num" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-    </div>
-      <button class = "btn btn-lg  btn-success btn-block" onclick="submitData();">Sign up</button>
-    <p class="">Already have an account? <a href="sign-in.html">log in</a></p>
-  </form>
-</div>
- </div>
-    <script>
-        
-        function PageLoad() {
-            document.getElementById('spnMessage').style.display='none';
-            var evp = document.createElement('img');
-            evp.height = 1;
-            evp.width = 1;
-            evp.style.display = "none";
-            evp.src = 'https://dmp.audiencelogy.net/adx-dir-d/funnel?nid=9&adv=12581&adx_txn_id=[adx_txn_id]&payout=[adx_payout]&adx_custom=fuid:9|fustg:17|srchkw:';
-            document.body.appendChild(evp);
-        }
-        
-    function submitData(){
+  </div>
+
+
+  <script>
+    function PageLoad() {
+      document.getElementById('spnMessage').style.display = 'none';
+      var evp = document.createElement('img');
+      evp.height = 1;
+      evp.width = 1;
+      evp.style.display = "none";
+      evp.src = 'https://dmp.audiencelogy.net/adx-dir-d/funnel?nid=9&adv=12581&adx_txn_id=[adx_txn_id]&payout=[adx_payout]&adx_custom=fuid:21|fustg:39|srchkw:';
+      document.body.appendChild(evp);
+    }
+
+    function submitData() {
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
-      var number = doocument.getElementById('num').value;
+      var number = document.getElementById('num').value;
       var password = document.getElementById('pwd').value;
-  
-      document.getElementById('ErrMessage').style.display='none';
-  
-      if(!name ==''|| name.value == ''){
-       document.getElementById('ErrMessage').innerHTML="Please enter Your Name!.";       
+      
+      document.getElementById('ErrMessage').style.display = 'none';
+      if (name == '' || name.value == '') {
+        document.getElementById('ErrMessage').innerHTML = "Please enter Your Name!.";
         document.getElementById('name').focus();
         return false;
       }
-      if(!email ==""|| email == ''){
-        document.getElementById('ErrMessage').innerHTML="Please enter an Email!.";        
+      if (email == "" || email == '') {
+        document.getElementById('ErrMessage').innerHTML = "Please enter an Email!.";
         document.getElementById('email').focus();
         return false;
       }
       
-          if(!number == ''|| number== ''){
-       document.getElementById('ErrMessage').innerHTML="Please enter a Number!.";       
-        document.getElementById('name').focus();
+      if (number == '' || number == '') {
+        document.getElementById('ErrMessage').innerHTML = "Please enter a Number!.";
+        document.getElementById('num').focus();
         return false;
       }
-          if(!password == ''|| password == ''){
-       document.getElementById('ErrMessage').innerHTML="Please enter a Number!.";       
-        document.getElementById('name').focus();
+      if (password == '' || password == '') {
+        document.getElementById('ErrMessage').innerHTML = "Please enter a Passward!.";
+        document.getElementById('pwd').focus();
         return false;
       }
-      var evp = document.createElement('img');
-            evp.height = 1;
-            evp.width = 1;
-            evp.style.display = "none";
-            evp.src = 'https://dmp.audiencelogy.net/adx-dir-d/funnel?nid=9&adv=12581&adx_txn_id=[adx_txn_id]&payout=[adx_payout]&adx_custom=fuid:9|fustg:18|srchkw:|frmdata:name:' + document.getElementById('name').value + '~~~email:' +
-                document.getElementById('email').value +  document.getElementById('num').value + document.getElementById('pwd').value;
-            document.getElementById('spnMessage').innerHTML = "Registratiion Successfull!";
-            document.getElementById('spnMessage').style.display='block';
-            document.body.appendChild(evp);
-    </script>
+      
+       var evp = document.createElement('img');
+       evp.height = 1;
+       evp.width = 1;
+       evp.style.display = "none";
+       evp.src = 'https://dmp.audiencelogy.net/adx-dir-d/funnel?nid=9&adv=12581&adx_txn_id=[adx_txn_id]&payout=[adx_payout]&adx_custom=fuid:21|fustg:39|srchkw:|frmdata:name:' +
+         document.getElementById('name').value + '~~~email:' + document.getElementById('email').value + '~~~phone:' + document.getElementById('num').value + '~~~password:' + document.getElementById('pwd').value;
+       document.getElementById('spnMessage').innerHTML = "Registration Successfull!";
+       document.getElementById('spnMessage').style.display = 'block';
+       document.body.appendChild(evp);
+    }
+  </script>
 </body>
+
 </html>
